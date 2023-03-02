@@ -7,7 +7,17 @@ const loadAiTools = async () => {
 }
 const displayTools = tools => {
     const toolsContainer = document.getElementById('tools-container');
-    tools = tools.slice(0, 6);
+    // tools = tools.slice(0, 6);
+
+    const showAll = document.getElementById('show-all');
+    if (tools.length > 6) {
+        tools = tools.slice(0, 6);
+
+        showAll.classList.remove('d-none');
+    }
+    else {
+        showAll.classList.add('d-none');
+    }
     tools.forEach(tool => {
         const toolsDiv = document.createElement('div');
         toolsDiv.classList.add('col');
@@ -30,7 +40,7 @@ const displayTools = tools => {
     
                 </div>
                 <div> 
-                <button class="btn btn-success"> Details <i class="fa-solid fa-arrow-right"></i></buttton>
+                <button onclick=loadToolDetails('${tool.id}') class="btn btn-success"> Details <i class="fa-solid fa-arrow-right"></i></buttton>
                  </div>
 
 
@@ -41,4 +51,16 @@ const displayTools = tools => {
         toolsContainer.appendChild(toolsDiv);
     })
 }
-loadAiTools();
+// document.getElementById('btn-show-all').addEventListener('click', function(){
+//     tools = tools.length;
+
+// })
+
+const loadToolDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/01`;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.data);
+
+}
+// loadAiTools();
