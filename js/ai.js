@@ -77,7 +77,7 @@ const displayToolDetails = toolModal => {
     modalDetails.innerHTML = `
 
     <div class="row g-0">
-        <div class="col-md-6 bg-secondary-subtle p-3">
+        <div class="col-md-6  col-sm-12 bg-secondary-subtle p-3">
             <h6 class="my-3">${toolModal.description ? toolModal.description : "Modal Title not found"}</h6>
          <div class="d-flex">
             <div class="m-2 py-3 px-2 bg-white rounded text-success fw-bold">
@@ -114,7 +114,7 @@ const displayToolDetails = toolModal => {
          
          </div>
         </div>
-        <div class="col-md-6 ps-5">
+        <div class="col-md-6  col-sm-12  ps-5">
         <img src="${toolModal.image_link[0]}" class="w-75" rounded p-4" alt="...">
         <h6 class="mt-4">${toolModal.input_output_examples[0].input ? toolModal.input_output_examples[0].input : 'Not Found'}</h6>
         <p class="mt-2">${toolModal.input_output_examples[0].output ? toolModal.input_output_examples[0].output : 'No! Not Yet! Take a break'}</p>
