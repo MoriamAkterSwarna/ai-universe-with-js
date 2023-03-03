@@ -68,7 +68,7 @@ const loadToolDetails = async id => {
 }
 const displayToolDetails = toolModal => {
     
-    // console.log(toolModal);
+    console.log(toolModal);
 
     // const modalTitle = document.getElementById('toolDetailsModalLabel');
     // modalTitle.innerText = toolModal.description;
@@ -115,7 +115,12 @@ const displayToolDetails = toolModal => {
          </div>
         </div>
         <div class="col-md-6  col-sm-12  ps-5">
-        <img src="${toolModal.image_link[0]}" class="w-75" rounded p-4" alt="...">
+        
+                <div>
+                    <img src="${toolModal.image_link[0]}" class="w-75 position-relative" rounded p-4" alt="...">
+                
+                    <div><button class="btn btn-danger accuracy-button position-absolute">${toolModal.accuracy.score? toolModal.accuracy.score * 100 + "% accuracy" : ''}  </button></div>
+                </div>
         <h6 class="mt-4">${toolModal.input_output_examples[0].input ? toolModal.input_output_examples[0].input : 'Not Found'}</h6>
         <p class="mt-2">${toolModal.input_output_examples[0].output ? toolModal.input_output_examples[0].output : 'No! Not Yet! Take a break'}</p>
     
