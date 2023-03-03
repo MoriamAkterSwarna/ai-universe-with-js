@@ -68,7 +68,7 @@ const loadToolDetails = async id => {
 }
 const displayToolDetails = toolModal => {
     
-    console.log(toolModal);
+    // console.log(toolModal);
 
     // const modalTitle = document.getElementById('toolDetailsModalLabel');
     // modalTitle.innerText = toolModal.description;
@@ -81,13 +81,13 @@ const displayToolDetails = toolModal => {
             <h6 class="my-3">${toolModal.description ? toolModal.description : "Modal Title not found"}</h6>
          <div class="d-flex">
             <div class="m-2 py-3 px-2 bg-white rounded text-success fw-bold">
-                <p>${toolModal.pricing[0].price ? toolModal.pricing[0].price : 'Free of Cost'} <br>/Basic</p>
+                <p>${toolModal.pricing[0].price ? toolModal.pricing[0].price : 'Free of Cost'} <br>/${toolModal.pricing[0].plan}</p>
             </div>
             <div class="m-2 py-3 px-2 bg-white rounded text-danger fw-bold">
-                <p>${toolModal.pricing[1].price ? toolModal.pricing[1].price : 'Free of Cost'} <br>/Pro </p>
+                <p>${toolModal.pricing[1].price ? toolModal.pricing[1].price : 'Free of Cost'} <br>/${toolModal.pricing[1].plan}</p>
             </div>
             <div class="my-2 py-3 text-danger-emphasis fw-bold bg-white px-2">
-                <p>${toolModal.pricing[2].price ? toolModal.pricing[2].price : 'Free of Cost'} <br>/Enterprise </p>
+                <p>${toolModal.pricing[2].price ? toolModal.pricing[2].price : 'Free of Cost'} <br>/${toolModal.pricing[2].plan} </p>
             </div>
          </div>
 
@@ -95,20 +95,20 @@ const displayToolDetails = toolModal => {
             <div>
                 <h6>Features</h6>
                 <ul>
-                    <li>${toolModal.features[1].feature_name
+                    <li>${toolModal.features[1].feature_name ? toolModal.features[1].feature_name : 'Feature not available'
                     }</li>
-                    <li>${toolModal.features[2].feature_name
+                    <li>${toolModal.features[2].feature_name ? toolModal.features[2].feature_name : 'Feature not available'
                     }</li>
-                    <li>${toolModal.features[3].feature_name
+                    <li>${toolModal.features[3].feature_name ? toolModal.features[3].feature_name: 'Feature not available'
                     }</li>
                 </ul>
             </div>
             <div>
                 <h6>Integrations</h6>
                 <ul>
-                    <li>${toolModal.integrations[0]}</li>
-                    <li>${toolModal.integrations[1]}</li>
-                    <li>${toolModal.integrations[2]}</li>
+                    <li>${toolModal.integrations[0] ? toolModal.integrations[0] : 'No data Found'}</li>
+                    <li>${toolModal.integrations[1] ? toolModal.integrations[1] : 'No data Found'}</li>
+                    <li>${toolModal.integrations[2] ?toolModal.integrations[2] : 'No data Found'}</li>
                 </ul>
             </div>
          
