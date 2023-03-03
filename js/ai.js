@@ -104,6 +104,11 @@ const displayToolDetails = toolModal => {
             </div>
             <div>
                 <h6>Integrations</h6>
+                <ul>
+                    <li>${toolModal.integrations[0]}</li>
+                    <li>${toolModal.integrations[1]}</li>
+                    <li>${toolModal.integrations[2]}</li>
+                </ul>
             </div>
          
          </div>
