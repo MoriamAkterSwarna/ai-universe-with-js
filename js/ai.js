@@ -78,16 +78,16 @@ const displayToolDetails = toolModal => {
 
     <div class="row g-0">
         <div class="col-md-6 bg-secondary-subtle p-3">
-            <h6 class="my-3">${toolModal.description}</h6>
+            <h6 class="my-3">${toolModal.description ? toolModal.description : "Modal Title not found"}</h6>
          <div class="d-flex">
             <div class="m-2 py-3 px-2 bg-white rounded text-success fw-bold">
-                <p>${toolModal.pricing[0].price}</p>
+                <p>${toolModal.pricing[0].price ? toolModal.pricing[0].price : 'Free of Cost'} <br>/Basic</p>
             </div>
             <div class="m-2 py-3 px-2 bg-white rounded text-danger fw-bold">
-                <p>${toolModal.pricing[1].price} </p>
+                <p>${toolModal.pricing[1].price ? toolModal.pricing[1].price : 'Free of Cost'} <br>/Pro </p>
             </div>
             <div class="my-2 py-3 text-danger-emphasis fw-bold bg-white px-2">
-                <p>${toolModal.pricing[2].price} </p>
+                <p>${toolModal.pricing[2].price ? toolModal.pricing[2].price : 'Free of Cost'} <br>/Enterprise </p>
             </div>
          </div>
 
