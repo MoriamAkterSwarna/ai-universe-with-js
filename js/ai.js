@@ -11,12 +11,13 @@ const displayTools = tools => {
 
     const showAll = document.getElementById('show-all');
     if (tools.length > 6) {
-        tools = tools.slice(0, 6);
+        // tools = tools.slice(0, 6);
 
         showAll.classList.remove('d-none');
     }
     else {
-        showAll.classList.add('d-none');
+        tools = tools.length;
+        console.log(tools)
     }
     tools.forEach(tool => {
         const toolsDiv = document.createElement('div');
@@ -27,16 +28,16 @@ const displayTools = tools => {
             <div class="card-body">
                 <h5>Features</h5>
                 <ol>
-                    <li>${tool.features[0]}</li>
-                    <li>${tool.features[1]}</li>
-                    <li>${tool.features[2]}</li>
-                    <li>${tool.features[3]}</li> 
+                    <li>${tool.features[0] ? tool.features[0] : "Unavailable"}</li>
+                    <li>${tool.features[1]? tool.features[1] : 'Unavailable'}</li>
+                    <li>${tool.features[2] ? tool.features[2] : 'Unavailable'}</li>
+                    <li>${tool.features[3] ? tool.features[3] : 'Unavailable'}</li> 
                 </ol>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <div>
-                    <h5 class="card-title">${tool.name}</h5>
-                    <small class="text-muted"><i class="fa-regular fa-calendar"></i> ${tool.published_in}</small>
+                    <h5 class="card-title">${tool.name ? tool.name: 'Not found'}</h5>
+                    <small class="text-muted"><i class="fa-regular fa-calendar"></i> ${tool.published_in ? tool.published_in : 'No Date found' }</small>
     
                 </div>
                 <div> 
