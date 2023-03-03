@@ -40,7 +40,7 @@ const displayTools = tools => {
     
                 </div>
                 <div> 
-                <button onclick=loadToolDetails('${tool.id}') class="btn btn-success"> Details <i class="fa-solid fa-arrow-right"></i>
+                <button onclick=loadToolDetails('${tool.id}') class="btn btn-success" data-bs-toggle="modal" data-bs-target="#toolDetailsModal"> Details <i class="fa-solid fa-arrow-right"></i>
                 </button>
                  </div>
 
@@ -68,5 +68,32 @@ const loadToolDetails = async id => {
 const displayToolDetails = toolModal => {
     
     console.log(toolModal);
-}
+
+    // const modalTitle = document.getElementById('toolDetailsModalLabel');
+    // modalTitle.innerText = toolModal.description;
+    const modalDetails = document.getElementById('modal-details');
+
+    modalDetails.innerHTML = `
+
+    <div class="row g-0">
+        <div class="col-md-6 bg-secondary-subtle p-3">
+         <h6 class="my-3">${toolModal.description}</h6>
+         <div class="d-flex">
+            <div class="m-2 py-3 px-2 bg-white rounded text-success fw-bold">
+                <p>${toolModal.pricing[0].price}</p>
+            </div>
+            <div class="m-2 py-3 px-2 bg-white rounded text-danger fw-bold"><p>${toolModal.pricing[1].price} </p></div>
+            <div class="my-2 py-3 text-danger-emphasis fw-bold bg-white px-2"><p>${toolModal.pricing[2].price} </p></div>
+         </div>
+        </div>
+        <div class="col-md-6">
+        <img src="${toolModal.image_link[0]}" class="w-75" rounded p-4" alt="...">
+    
+    </div>
+   
+        
+       
+
+        `;
+};
 loadAiTools();
