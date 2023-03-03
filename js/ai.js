@@ -115,6 +115,8 @@ const displayToolDetails = toolModal => {
         </div>
         <div class="col-md-6 ps-5">
         <img src="${toolModal.image_link[0]}" class="w-75" rounded p-4" alt="...">
+        <h6 class="mt-4">${toolModal.input_output_examples[0].input}</h6>
+        <p class="mt-2">${toolModal.input_output_examples[0].output}</p>
     
     </div>
    
