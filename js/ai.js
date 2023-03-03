@@ -1,24 +1,26 @@
-const loadAiTools = async () => {
+const loadAiTools = async (dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.data.tools);
-    displayTools(data.data.tools);
+    displayTools(data.data.tools,dataLimit);
 }
-const displayTools = tools => {
+const displayTools = (tools,dataLimit) => {
     const toolsContainer = document.getElementById('tools-container');
-    // tools = tools.slice(0, 6);
+    toolsContainer.textContent = '';
 
+    // tools = tools.slice(0,6);
     const showAll = document.getElementById('show-all');
-    if (tools.length > 6) {
-        // tools = tools.slice(0, 6);
+    if (dataLimit && tools.length > 6) {
+       tools = tools.slice(0, 6);
 
         showAll.classList.remove('d-none');
     }
     else {
-        tools = tools.length;
-        console.log(tools)
+        showAll.classList.add('d-none');
     }
+
+
     tools.forEach(tool => {
         const toolsDiv = document.createElement('div');
         toolsDiv.classList.add('col');
@@ -52,14 +54,21 @@ const displayTools = tools => {
 
         toolsContainer.appendChild(toolsDiv);
     });
-   
+    
 }
+
+
 document.getElementById('sort-btn').addEventListener('click', function(){
 //     tools = tools.length;
 
 // start loader
      toggleSpinner(true);
+});
+document.getElementById('btn-show-all').addEventListener('click', function () {
+    
+    loadAiTools();
 })
+
 // spinner
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
@@ -70,6 +79,8 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('d-none')
     }
 }
+toggleSpinner(false);
+
 
 const loadToolDetails = async id => {
     toggleSpinner(true);
@@ -101,7 +112,7 @@ const displayToolDetails = toolModal => {
                 <p>${toolModal.pricing[1].price ? toolModal.pricing[1].price : 'Free of Cost'} <br>/${toolModal.pricing[1].plan}</p>
             </div>
             <div class="my-2 py-3 text-danger-emphasis fw-bold bg-white px-2">
-                <p>${toolModal.pricing[2].price ? toolModal.pricing[2].price : 'Free of Cost'} <br>/${toolModal.pricing[2].plan} </p>
+                <p>${toolModal.pricing[2].price === "0" ? toolModal.pricing[2].price : 'Free of Cost'} <br>/${toolModal.pricing[2].plan} </p>
             </div>
          </div>
 
@@ -145,4 +156,5 @@ const displayToolDetails = toolModal => {
 
         `;
 };
-loadAiTools();
+loadAiTools(6);
+// displayTools(6)
