@@ -23,7 +23,7 @@ const displayTools = tools => {
         const toolsDiv = document.createElement('div');
         toolsDiv.classList.add('col');
         toolsDiv.innerHTML = `   
-            <div class="card">
+            <div class="card tools-card">
             <img src="${tool.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5>Features</h5>
@@ -116,8 +116,8 @@ const displayToolDetails = toolModal => {
         </div>
         <div class="col-md-6 ps-5">
         <img src="${toolModal.image_link[0]}" class="w-75" rounded p-4" alt="...">
-        <h6 class="mt-4">${toolModal.input_output_examples[0].input}</h6>
-        <p class="mt-2">${toolModal.input_output_examples[0].output}</p>
+        <h6 class="mt-4">${toolModal.input_output_examples[0].input ? toolModal.input_output_examples[0].input : 'Not Found'}</h6>
+        <p class="mt-2">${toolModal.input_output_examples[0].output ? toolModal.input_output_examples[0].output : 'No! Not Yet! Take a break'}</p>
     
     </div>
    
