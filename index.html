@@ -15,8 +15,17 @@
 
         <header class="text-center">
             <h1 class="mt-5">AI Universe Hub</h1>
-            <button class="btn btn-danger fw-bold mt-2">Sort By Date</button>
+            <button id="sort-btn" class="btn btn-danger fw-bold mt-2">Sort By Date</button>
         </header>
+         <!-- section for spinner -->
+         <section id="loader" class="d-none mt-4">
+          <div class="d-flex justify-content-center align-items-center">
+              <div style="height: 400;" class="spinner-border text-success" role="status">
+                  <span class="visually-hidden">Loading...</span>
+              </div>
+          </div>
+
+      </section>
 
         <main>
             <section class="container mt-5">
@@ -28,16 +37,10 @@
                 </div>
             </section>
 
-            <section class="container">
-                <div style="height: 200px;" class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                  </div>
-            </section>
+           
 
             <!-- show all -->
-            <div id="show-all" class="text-center mb-5 d-none">
+            <div id="show-all" class="text-center mb-5 d-none mt-5">
                 <button id="btn-show-all" class="btn btn-primary">Show All</button>
             </div>
 

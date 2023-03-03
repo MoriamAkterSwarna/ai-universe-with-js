@@ -51,14 +51,28 @@ const displayTools = tools => {
   `;
 
         toolsContainer.appendChild(toolsDiv);
-    })
+    });
+   
 }
-// document.getElementById('btn-show-all').addEventListener('click', function(){
+document.getElementById('sort-btn').addEventListener('click', function(){
 //     tools = tools.length;
 
-// })
+// start loader
+     toggleSpinner(true);
+})
+// spinner
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none')
+    }
+    else {
+        loaderSection.classList.add('d-none')
+    }
+}
 
 const loadToolDetails = async id => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     fetch(url)
         .then(res => res.json())
