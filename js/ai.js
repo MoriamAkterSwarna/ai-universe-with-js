@@ -1,10 +1,11 @@
 
+let fetchData = [];
 const loadAiTools = async (dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.data.tools);
-    // fetchData = data.data.tools;
+    fetchData = data.data.tools;
     // console.log(fetchData);
     displayTools(data.data.tools,dataLimit);
 }
@@ -60,7 +61,7 @@ const displayTools = (tools,dataLimit) => {
 
         toolsContainer.appendChild(toolsDiv);
     });
-    // sortingByDate();
+    sortingByDate();
 }
 
 
@@ -162,4 +163,13 @@ const displayToolDetails = toolModal => {
 
         `;
 };
+const sortingByDate = () => {
+    // console.log(fetchData)
+fetchData.sort((a,b) => {
+        let da = new Date(a.joinedDate),
+            db = new Date(b.joinedDate);
+        return da - db;
+        // console.log(fetchData)
+});
+}
 loadAiTools(6);
