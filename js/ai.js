@@ -77,16 +77,38 @@ const displayToolDetails = toolModal => {
 
     <div class="row g-0">
         <div class="col-md-6 bg-secondary-subtle p-3">
-         <h6 class="my-3">${toolModal.description}</h6>
+            <h6 class="my-3">${toolModal.description}</h6>
          <div class="d-flex">
             <div class="m-2 py-3 px-2 bg-white rounded text-success fw-bold">
                 <p>${toolModal.pricing[0].price}</p>
             </div>
-            <div class="m-2 py-3 px-2 bg-white rounded text-danger fw-bold"><p>${toolModal.pricing[1].price} </p></div>
-            <div class="my-2 py-3 text-danger-emphasis fw-bold bg-white px-2"><p>${toolModal.pricing[2].price} </p></div>
+            <div class="m-2 py-3 px-2 bg-white rounded text-danger fw-bold">
+                <p>${toolModal.pricing[1].price} </p>
+            </div>
+            <div class="my-2 py-3 text-danger-emphasis fw-bold bg-white px-2">
+                <p>${toolModal.pricing[2].price} </p>
+            </div>
+         </div>
+
+         <div class="d-flex justify-content-between">
+            <div>
+                <h6>Features</h6>
+                <ul>
+                    <li>${toolModal.features[1].feature_name
+                    }</li>
+                    <li>${toolModal.features[2].feature_name
+                    }</li>
+                    <li>${toolModal.features[3].feature_name
+                    }</li>
+                </ul>
+            </div>
+            <div>
+                <h6>Integrations</h6>
+            </div>
+         
          </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 ps-5">
         <img src="${toolModal.image_link[0]}" class="w-75" rounded p-4" alt="...">
     
     </div>
