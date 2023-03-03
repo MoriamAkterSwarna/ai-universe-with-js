@@ -40,7 +40,8 @@ const displayTools = tools => {
     
                 </div>
                 <div> 
-                <button onclick=loadToolDetails('${tool.id}') class="btn btn-success"> Details <i class="fa-solid fa-arrow-right"></i></buttton>
+                <button onclick=loadToolDetails('${tool.id}') class="btn btn-success"> Details <i class="fa-solid fa-arrow-right"></i>
+                </button>
                  </div>
 
 
@@ -57,10 +58,15 @@ const displayTools = tools => {
 // })
 
 const loadToolDetails = async id => {
-    const url = `https://openapi.programming-hero.com/api/ai/tool/01`;
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data.data);
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayToolDetails(data.data))
+        .catch(error => displayToolDetails(error))
 
 }
-// loadAiTools();
+const displayToolDetails = toolModal => {
+    
+    console.log(toolModal);
+}
+loadAiTools();
