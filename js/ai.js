@@ -1,11 +1,17 @@
+
 const loadAiTools = async (dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data.data.tools);
+    // fetchData = data.data.tools;
+    // console.log(fetchData);
     displayTools(data.data.tools,dataLimit);
 }
 const displayTools = (tools,dataLimit) => {
+
+    // start spinner
+    toggleSpinner(true);
     const toolsContainer = document.getElementById('tools-container');
     toolsContainer.textContent = '';
 
@@ -54,15 +60,15 @@ const displayTools = (tools,dataLimit) => {
 
         toolsContainer.appendChild(toolsDiv);
     });
-    
+    // sortingByDate();
 }
 
 
 document.getElementById('sort-btn').addEventListener('click', function(){
 //     tools = tools.length;
 
-// start loader
-     toggleSpinner(true);
+// stop spinner
+    toggleSpinner(false);
 });
 document.getElementById('btn-show-all').addEventListener('click', function () {
     
@@ -79,7 +85,7 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('d-none')
     }
 }
-toggleSpinner(false);
+
 
 
 const loadToolDetails = async id => {
@@ -87,7 +93,7 @@ const loadToolDetails = async id => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayToolDetails(data.data))
+        .then(data =>displayToolDetails(data.data))
         .catch(error => displayToolDetails(error))
 
 }
@@ -157,4 +163,3 @@ const displayToolDetails = toolModal => {
         `;
 };
 loadAiTools(6);
-// displayTools(6)
